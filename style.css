@@ -1,0 +1,882 @@
+html {
+  max-width: 1920px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+  font-family: MateSC-Regular;
+}
+
+body {
+  background: #eee;
+  font-family: MateSC-Regular;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#myImg {
+  width: 27px;
+  padding-right: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('Group 28.png'); 
+  background-color: rgba(0, 0, 0, 10);
+
+}
+
+.input-name label {
+  font-weight: normal; /* Убираем полужирное начертание для текста метки */
+  width: auto; /* Ограничиваем ширину метки не на всю ширину контейнера */
+  margin-bottom: 5px; /* Уменьшаем отступ между меткой и полем ввода */
+  text-align: left; /* Убираем лишние стили, так как они уже заданы глобально */
+}
+
+.input-name input {
+  width: 104.3%; /* Занимаем всю доступную ширину контейнера */
+  margin: 0; /* Убираем внешние отступы */
+  border: 2px solid #000000; /* Границу оставляем по умолчанию, но уменьшим толщину для соответствия общепринятым стилям */
+  padding: 10px; /* Увеличим внутренние отступы для более комфортного ввода */
+  box-sizing: border-box; /* Укажем, что внутренний отступ включается в общую ширину поля */
+  font-family: MateSC-Regular;
+  font-size: 16px;
+}
+
+/* Уберем лишние стили, которые уже заданы глобально */
+.input-name {
+  width: 80%;
+  height: auto; /* Установим auto для высоты, чтобы она подстраивалась под содержимое */
+  margin-bottom: 20px;
+  padding: 0; /* Уберем внутренние отступы в пользу стилей для поля ввода */
+  display: block; /* Изменяем значение display с flex на block */
+  font-weight: normal; /* Убираем жирное начертание для текста */
+  align-items: initial; /* Возвращаем значение по умолчанию для выравнивания */
+  font-size: initial; /* Возвращаем размер шрифта по умолчанию */
+  margin-left: 0; /* Убираем лишний отступ слева */
+  position: relative; /* Указываем позиционирование для корректного отображения элементов внутри */
+}
+.sign{
+  width: 80%;
+  height: 43px;
+  border: 2px solid rgb(0, 0, 0); 
+  color: #000000; 
+  background-color: #ffffff;
+  margin-top: 20px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-size: 16px;  
+  margin-left: 30px;
+}
+
+
+.icon-gugl{
+  margin-left: 7px;
+}
+
+
+.agreement{
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(255, 255, 255);  
+  color: #ffffff; 
+  margin-right: 526px;
+  display: flex;
+  flex-direction: row;
+  align-items: center ;
+}
+
+.agreement::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 30px;
+}
+
+.agreement-text {
+  white-space: nowrap; 
+  font-size: 15px;
+}
+
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close-registr {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-registr:hover,
+.close-registr:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+ 
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: #FFF;
+  margin-top: 20px;
+  position: relative; /* Добавим относительное позиционирование для контейнера слайдера */
+  
+}
+
+swiper-slide {
+  z-index: 1;
+  margin-top: 20px;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  display: flex;
+  
+}
+
+swiper-slide img {
+  display: block;
+  object-fit: cover;
+  margin-bottom: 37px;  
+  
+}
+
+.pagination {
+  position: absolute;
+  bottom: 10px; /* Установите желаемый отступ снизу */
+  left: 0;
+  width: 100%; /* Ширина на всю ширину слайдера */
+  text-align: center; /* Центрируем по горизонтали */
+}
+
+h6{
+  padding: 0px 290px 10px 0px;
+  margin: 0 0 0 0;
+  font-family: MateSC-Regular;
+  font-size: 28px;
+  color: #000;
+}
+
+h2{
+  padding: 0px 500px 10px 0px;
+  margin: 0 0 0 0;
+  font-family: MateSC-Regular;
+  font-size: 28px;
+  color: #000;
+}
+
+h3{
+  padding: 0px 300px 50px 0px;
+  margin: 0 0 0 0;
+  font-family: MateSC-Regular;
+  font-size: 35px;
+  color: #000;
+}
+
+h4{
+  padding: 0px 450px 10px 0px;
+  margin: 0 0 0 0;
+  font-family: MateSC-Regular;
+  font-size: 28px;
+  color: #000;
+}
+
+h5{
+  padding: 0px 525px 10px 0px;
+  margin: 0 0 0 0;
+  font-family: MateSC-Regular;
+  font-size: 28px;
+  color: #000;
+}
+
+p4{
+  padding: 0px 625px 0px 0px;
+  margin: 0 0 0 0;
+  font-family: MateSC-Regular;
+  font-size: 20px;
+  color: #000;
+}
+
+button{
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.hat{ 
+  width: 134%;
+	height: 100px;
+	background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: MateSC-Regular;
+}
+
+.header-center{
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: MateSC-Regular;
+}
+
+.header-left{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: MateSC-Regular;
+}
+
+.header-bottom{
+  display: flex;
+  width: 134%;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  padding-left: 50px;
+  font-family: MateSC-Regular;
+}
+
+.title{
+  position: relative;
+  width: 100%; /* Убедитесь, что ширина изображения не превышает ширину окна браузера */
+  height: 795px; /* Меняем высоту, чтобы картинка масштабировалась правильно */
+  display: block; /* Разрешаем изображению быть блочным элементом */
+  max-width: 100%; /* Гарантируем, что изображение никогда не будет шире своего контейнера */
+}
+
+.annotation {
+  position: absolute;
+  bottom: 530px;
+  left: 230px;
+  font-size: 45px;
+  font-family: MateSC-Regular;
+  color: #FFF;
+}
+
+.annotation_next {
+position: absolute;
+bottom: 415px;
+left: 230px;
+font-size: 30px;
+font-family: MateSC-Regular;
+color: #dddddd;
+line-height: 140%;
+}
+
+.annotation_rect{
+  width: 225px;
+  height: 50px;
+  background-color: rgba(255, 216, 140, 0.80);
+  border: 3px solid #EDA61E;
+  position: absolute;
+  bottom: 345px;
+  left: 230px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.recommendation{
+  width: 100%;
+  height: 1300px;
+  background-color: #000;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: #FFF;
+  overflow: hidden;
+}
+
+.imgforrecomend{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  padding-right: 300px;
+  gap: 50px;
+}
+
+.imgforrecomendline2{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 20px;
+  padding-right: 300px;
+  gap: 50px;
+}
+
+.imgforrecomendline3{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 20px;
+  padding-left: 50px;
+  gap: 50px;
+  position: relative;
+}
+
+.imgforrecomendline3::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 700px; /* Высота темной области */
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)); /* Градиент от прозрачного к темному */
+}
+
+h1{
+  padding: 35px 0 10px 175px;
+  margin: 0 0 0 0;
+  font-size: 35px;
+  font-family: MateSC-Regular;
+  font-weight: 200;
+}
+
+.line_search{
+  margin-top: 15px;
+}
+
+.padding{
+    padding-right: 40px;
+}
+
+.leveling{
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.poloska {
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+    column-gap: 20px;
+    align-items: center;
+    scrollbar-width: 0;
+    
+}
+
+.levelingbypoloska {
+    font-family:  "TT Lakes Regular";
+    color: #7E7E82;
+    font-family: TT Lakes;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    border-radius: 6px;
+    border: 2px solid #B8FFEC;
+    background: #FFF;
+    padding: 5px 20px;
+}
+
+.text{
+    padding-left: 15px;
+}
+
+
+.strelka{
+    margin-left: 15px;
+    display: flex;
+}
+
+.levelingbystrelka{
+    margin-left: 15px;
+    margin-top: 0px;
+}
+
+  .overflow {
+    position: absolute;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  .open{
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding-top: 7px;
+  }
+  
+  .overflow.active {
+    opacity: 0.2;
+    visibility: visible;
+  }
+
+  .drawer {
+    position: fixed;
+    transform: translateX(-155%);
+    visibility: visible;
+    transition: transform 0.5s ease, visibility 0.5s ease;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 385px;
+    height: 100%;
+    box-shadow: -10px 4px 24px rgb(0 0 0 / 10%);
+    background-color: #fff;
+    max-height: calc(100vh - 60px);
+  }
+  
+  .drawerHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .drawerHeaderpadding{
+    padding-right: 100px;
+  }
+  
+  .drawerHeaderh3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  
+  .cartItem {
+    margin-left: 27px;
+    border: none;
+    background-color: #ffffff;
+
+  }
+
+   /*важно начало!*/
+  .drawer.active {
+    transform: translateX(0%);
+    visibility: visible;
+    z-index: 10;
+  }
+  
+  .close{
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f2f2f2;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .cartItem:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .cartImg {
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+    background-position: 0 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+  }
+
+  .cartItemMeta {
+    max-width: 300px;
+    font-size: 20px;
+    font-weight: 500; 
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-top: 20px;
+  }
+
+  li{
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+  }
+
+  .cartItemMeta h1 {
+    cursor: pointer;
+    max-width: 200px;
+    list-style: none;
+
+  }
+
+
+  
+  .cartItemMeta h4 {
+    margin: 0;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  
+  .cartItemMeta b {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  
+  .cartWrapper {
+    flex: 1;
+    margin-bottom: 40px;
+    border: none;
+    background-color: #ffffff;
+  }
+
+  .drawerBottom {
+    flex: 1 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .drawerBottom ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .drawerBottomItem {
+    display: flex;
+    gap: 20px;
+  }
+  
+
+
+  .drawerBottomItem span {
+    font-size: 16px;
+  }
+  
+  .drawerBottomItem div {
+    position: relative;
+    bottom: 4px;
+    flex: 1;
+    margin: 0 7px;
+    border-bottom: 1px dashed #dfdfdf;
+  }
+  
+  .drawerBottomItem b {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .drawerBottomItem:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+    .drawerBottomItemIcon {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-size: 13px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .btn-reset-greenBtn{
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: 30px;
+
+  }
+
+
+
+.gallery img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 10px;
+}
+  
+button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: black; 
+  cursor: pointer; 
+  width: 150PX;
+  height: 50PX;
+  margin-top: 10px; 
+  margin-bottom: 15px;
+  display: flex;
+  font-size: 18PX;
+  font-family: MateSC-Regular;
+  border: 2px solid white; /* Добавляем белый контур вокруг кнопки */
+  color: white; /* Устанавливаем белый цвет текста на кнопке */
+}
+
+.container_show.hide {
+  opacity: 0; /* Прячем картинки установкой нулевой прозрачности */
+  display: none; /* Но оставляем блок в потоке документа */
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 100%;
+  background-color: #000;
+  margin-top: 20px;
+  position: relative;
+}
+
+.gallery-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+}
+
+.container_show{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.basement{
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.basement-logo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+p{
+  margin: 0 0 30px 0 ;
+}
+
+.header-basement {
+  font-size: 15px;
+  margin: 20px 0 0 0;
+  padding-top: 10px;
+  padding-right: 20%;
+  column-count: 2; /* Делаем две колонки */
+  column-gap: 50px; /* Добавляем промежуток между колонками */
+}
+
+.contact-basement{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 17px;
+  margin: 20px 0 10px 0;
+  padding-top: 10px;
+  padding-right: 20%;
+}
+
+.extras {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 17px;
+  margin: 20px 0 10px 0;
+  padding-top: 10px;
+  padding-right: 20%;
+}
+
+.extras h-header-basement {
+  margin-bottom: 10px; /* Отступ вниз от заголовка */
+}
+
+.icons-container {
+  display: flex; /* Размещаем иконки в строку */
+  gap: 10px; /* Добавляем промежуток между иконками */
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 7%; /* Располагаем текст внизу */
+  left: 7%; /* и слева от изображения */
+  font-size: 25px;
+  font-family: MateSC-Regular;
+  color: white; /* Устанавливаем цвет текста */
+  padding: 5px; /* Добавляем отступ вокруг текста */
+}
+
+h-header-basement{
+  color: #000000;
+  font-size: 20px;
+  font-family: MateSC-Regular;
+}
+
+p-header-basement{
+  margin: 0 0 0 0;
+}
+
+h-artist{
+  color: #ffffff;
+  margin-left: 60%;
+  margin-top: 3%;
+  font-size: 35px;
+  font-family: MateSC-Regular;
+}
+
+@media (min-width: 768px) {
+    .container {
+      padding: 0 0px;
+    }
+  }
+@media (min-width: 1440px) {
+    .container {
+      max-width: 1400px;
+    }
+}
+
+@media (min-width: 1120px) {
+  .container {
+    padding: 0 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hat {
+    padding: 0 24px;
+  }
+
+  .header-bottom {
+    padding: 0 24px;
+  }
+}
+
+@font-face {
+	font-family: 'MateSC-Regular'; 
+	src: local('MateSC-Regular'),
+		url(/Шрифты/MateSC-Regular.ttf); 
+}
